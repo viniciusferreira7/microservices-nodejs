@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "format": "biome format",
+    "format": "biome format --write src",
     "lint": "biome lint",
     "check": "biome check",
     "dev": "node --experimental-strip-types --watch --no-warnings src/http/server.ts",

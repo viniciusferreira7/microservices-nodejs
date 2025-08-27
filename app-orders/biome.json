@@ -32,7 +32,7 @@
 	"javascript": { "globals": ["Global1"] },
 	"overrides": [
 		{
-			"linter": { "rules": { "suspicious": { "noDoubleEquals": "off" } } }
+			"linter": {"enabled":true,  "rules": { "suspicious": { "noDoubleEquals": "off" } } }
 		}
 	]
 }
