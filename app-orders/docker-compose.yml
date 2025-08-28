@@ -1,6 +1,6 @@
 services:
   pg:
-    image: bitnami/postgresql:latest
+    image: bitnami/postgresql:17.2.0
     ports:
       - '5482:5432'
     environment:
