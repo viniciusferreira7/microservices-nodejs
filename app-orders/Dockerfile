@@ -1,5 +1,5 @@
 
-FROM node:lts-alpine AS base
+FROM node:22.18.0-slim AS base
 
 RUN npm install -g pnpm
 
