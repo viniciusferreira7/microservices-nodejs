@@ -8,9 +8,10 @@
     "format": "biome format --write src",
     "lint": "biome lint",
     "check": "biome check",
-    "dev": "node --experimental-strip-types --watch --no-warnings src/http/server.ts",
+    "dev": "node --env-file=.env --experimental-strip-types --watch --no-warnings src/http/server.ts",
     "start": "node --experimental-strip-types --no-warnings src/http/server.ts",
-    "db:studio": "drizzle-kit studio --port 5555 --verbose"
+    "db:studio": "drizzle-kit studio --port 5555 --verbose",
+    "db:migrate": "drizzle-kit generate &&  drizzle-kit migrate"
   },
   "keywords": [],
   "author": "",

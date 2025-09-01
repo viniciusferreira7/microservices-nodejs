@@ -2,10 +2,10 @@
   "extends": "@tsconfig/node22/tsconfig.json",
   "compilerOptions": {
     "noEmit": true,
-    "allowImportingTsExtensions": true
-  },
-  "baseUrl": "./",                                  /* Specify the base directory to resolve non-relative module names. */
+    "allowImportingTsExtensions": true,
+    "baseUrl": "./",
     "paths": {
-      "@/*" : ["./src/*"]
-    },  
+      "@/*": ["./src/*"]
+    }
+  }
 }
