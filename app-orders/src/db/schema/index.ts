@@ -1,3 +1,4 @@
-import { orders } from './orders';
+import { customers } from './customers.ts';
+import { orders, statusEnum } from "./orders.ts";
 
-export const schema = { orders }
+export const schema = { orders, orderStatus: statusEnum, customers };

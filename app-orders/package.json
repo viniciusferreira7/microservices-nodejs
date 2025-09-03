@@ -11,13 +11,15 @@
     "dev": "node --env-file=.env --experimental-strip-types --watch --no-warnings src/http/server.ts",
     "start": "node --experimental-strip-types --no-warnings src/http/server.ts",
     "db:studio": "drizzle-kit studio --port 5555 --verbose",
-    "db:migrate": "drizzle-kit generate &&  drizzle-kit migrate"
+    "db:migrate": "drizzle-kit generate &&  drizzle-kit migrate",
+    "db:seed": "node --env-file=.env --experimental-strip-types --no-warnings ./src/db/seed.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "packageManager": "pnpm@10.15.0",
   "dependencies": {
+    "@faker-js/faker": "^10.0.0",
     "@fastify/cors": "^11.1.0",
     "amqplib": "^0.10.9",
     "dotenv": "^17.2.1",

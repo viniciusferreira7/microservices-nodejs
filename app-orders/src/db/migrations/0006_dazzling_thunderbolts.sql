@@ -1,0 +1,1 @@
+ALTER TABLE "customers" ADD COLUMN "zip_code" text NOT NULL;
