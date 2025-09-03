@@ -5,10 +5,11 @@ import {
 	validatorCompiler,
 	type ZodTypeProvider,
 } from "fastify-type-provider-zod";
-import { channels } from "../../broker/channels/index.ts";
 import fastifyCors from "@fastify/cors";
 import { db } from "../db/client.ts";
 import { schema } from '../db/schema/index.ts';
+import { faker } from '@faker-js/faker';
+import { dispatchOrderCreated } from '../broker/messages/order-created.ts';
 
 const app = fastify().withTypeProvider<ZodTypeProvider>();
 
@@ -36,18 +37,26 @@ app.post(
 	async (request, reply) => {
 		const { amount } = request.body;
 
-		// const [order] = await db
-		// 	.insert(schema.orders)
-		// 	.values({
-		// 		amount,
-		// 		status: "pending",
-		// 	})
-		// 	.returning();
+		const customers =  await db.query.customers.findMany()
+		const customerIds = customers.map((customer) => customer.id)
+		const randomCustomerId = faker.helpers.arrayElement(customerIds);
 
-		channels.orders.sendToQueue(
-			"orders",
-			Buffer.from(JSON.stringify({  })),
-		);
+		const [order] = await db
+			.insert(schema.orders)
+			.values({
+				amount,
+				customerId: randomCustomerId, 
+				status: "pending",
+			})
+			.returning();
+
+		dispatchOrderCreated({
+			id: order.id,
+			amount: order.amount,
+			customer: {
+				id: order.customerId
+			}
+		})
 
 		reply.status(201).send();
 	},
@@ -56,5 +65,3 @@ app.post(
 app
 	.listen({ host: "0.0.0.0", port: 3333 })
 	.then(() => console.log("[Orders] HTTP Server is running 🚀"));
-
-	//TODO: 47:00

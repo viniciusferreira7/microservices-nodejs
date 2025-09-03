@@ -12,7 +12,7 @@ export const orders = pgTable("orders", {
 	customerId: uuid().notNull() .references(() => customers.id, {
       onDelete: 'cascade',
 	}),
-	amount: integer(),
+	amount: integer().notNull(),
 	status: statusEnum().notNull().default("pending"),
 	createdAt: timestamp().defaultNow().notNull(),
 });
