@@ -1,3 +1,5 @@
+import '../broker/subscriber.ts'
+
 import { fastify } from "fastify";
 import {
 	serializerCompiler,
@@ -5,6 +7,7 @@ import {
 	type ZodTypeProvider,
 } from "fastify-type-provider-zod";
 import fastifyCors from "@fastify/cors";
+import { env } from '../../env.ts';
 
 const app = fastify().withTypeProvider<ZodTypeProvider>();
 
@@ -18,5 +21,5 @@ app.get("/health", (_, reply) => {
 });
 
 app
-	.listen({ host: "0.0.0.0", port: 3333 })
+	.listen({ host: "0.0.0.0", port: env.PORT })
 	.then(() => console.log("[Invoices] HTTP Server is running 🚀"));

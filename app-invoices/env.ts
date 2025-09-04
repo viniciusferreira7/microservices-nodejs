@@ -1,6 +1,8 @@
 import { z } from "zod";
 
 const envSchema = z.object({
+  NODE_ENV: z.enum(["dev", "test", "production"]).default("dev"),
+  PORT: z.coerce.number().default(3332),
   DATABASE_URL: z
     .url()
     .regex(/^postgresql:\/\//, "DATABASE_URL must be a valid PostgreSQL connection string"),

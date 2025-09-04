@@ -10,6 +10,7 @@ import { db } from "../db/client.ts";
 import { schema } from '../db/schema/index.ts';
 import { faker } from '@faker-js/faker';
 import { dispatchOrderCreated } from '../broker/messages/order-created.ts';
+import { env } from '../../env.ts';
 
 const app = fastify().withTypeProvider<ZodTypeProvider>();
 
@@ -63,5 +64,5 @@ app.post(
 );
 
 app
-	.listen({ host: "0.0.0.0", port: 3333 })
+	.listen({ host: "0.0.0.0", port: env.PORT })
 	.then(() => console.log("[Orders] HTTP Server is running 🚀"));
