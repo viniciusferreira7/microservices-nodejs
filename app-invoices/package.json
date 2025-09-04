@@ -1,5 +1,5 @@
 {
-  "name": "app-orders",
+  "name": "app-invoices",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,7 +10,7 @@
     "check": "biome check",
     "dev": "node --env-file=.env --experimental-strip-types --watch --no-warnings src/http/server.ts",
     "start": "node --experimental-strip-types --no-warnings src/http/server.ts",
-    "db:studio": "drizzle-kit studio --port 5555 --verbose",
+    "db:studio": "drizzle-kit studio --port 4444 --verbose",
     "db:migrate": "drizzle-kit generate &&  drizzle-kit migrate",
     "db:seed": "node --env-file=.env --experimental-strip-types --no-warnings ./src/db/seed.ts"
   },
