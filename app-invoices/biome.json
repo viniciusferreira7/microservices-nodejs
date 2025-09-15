@@ -1,38 +1,63 @@
 {
+	"$schema": "https://biomejs.dev/schemas/2.2.2/schema.json",
 	"files": {
 		"ignoreUnknown": false,
-		"includes": ["**", "!**/dist", "!**/.next", "!**/*.node_modules"]
+		"includes": ["src/**/*", "test/**/*", "tests/**/*", "!src/db/migrations"]
+	},
+	"formatter": {
+		"enabled": true,
+		"formatWithErrors": false,
+		"indentStyle": "tab",
+		"indentWidth": 2,
+		"lineWidth": 100
 	},
 	"linter": {
 		"enabled": true,
 		"rules": {
+			"recommended": true,
 			"correctness": {
-				"noNodejsModules": "error"
+				"noNodejsModules": "error",
+				"useExhaustiveDependencies": "warn"
 			},
-			"recommended": false,
 			"complexity": {
 				"noForEach": "error",
 				"noStaticOnlyClass": "error",
 				"noUselessSwitchCase": "error",
-				"useFlatMap": "error"
+				"useFlatMap": "error",
+				"useOptionalChain": "error"
 			},
 			"style": {
 				"noNegationElse": "off",
 				"useForOf": "error",
 				"useNodejsImportProtocol": "error",
-				"useNumberNamespace": "error"
+				"useNumberNamespace": "error",
+				"useImportType": "error",
+				"useExportType": "error",
+				"useConsistentArrayType": "error",
+				"useConst": "error"
 			},
 			"suspicious": {
 				"noDoubleEquals": "error",
 				"noThenProperty": "error",
-				"useIsArray": "error"
+				"useIsArray": "error",
+				"noExplicitAny": "warn",
+				"noConfusingVoidType": "error"
+			},
+			"performance": {
+				"noDelete": "error"
 			}
 		}
 	},
-	"javascript": { "globals": ["Global1"] },
-	"overrides": [
-		{
-			"linter": {"enabled":true,  "rules": { "suspicious": { "noDoubleEquals": "off" } } }
+	"javascript": {
+		"formatter": {
+			"semicolons": "always",
+			"quoteStyle": "single",
+			"trailingCommas": "es5"
 		}
-	]
+	},
+	"json": {
+		"formatter": {
+			"trailingCommas": "none"
+		}
+	}
 }
