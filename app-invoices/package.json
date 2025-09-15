@@ -8,6 +8,7 @@
     "format": "biome format --write src",
     "lint": "biome lint --write",
     "check": "biome check  --write",
+    "predev": "docker compose --env-file .env up -d",
     "dev": "node --env-file=.env --experimental-strip-types --watch --no-warnings src/http/server.ts",
     "start": "node --experimental-strip-types --no-warnings src/http/server.ts",
     "db:studio": "drizzle-kit studio --port 4444 --verbose",

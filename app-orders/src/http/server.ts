@@ -1,6 +1,7 @@
+import '@opentelemetry/auto-instrumentations-node/register';
+
 import { fastify } from 'fastify';
 import { z } from 'zod';
-import '@opentelemetry/auto-instrumentations-node/register';
 import { faker } from '@faker-js/faker';
 import fastifyCors from '@fastify/cors';
 import {

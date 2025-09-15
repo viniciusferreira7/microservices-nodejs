@@ -1,6 +1,6 @@
 services:
   invoices-pg:
-    container_name: invoices-app
+    container_name: app-invoices
     image: bitnami/postgresql:17.2.0
     ports:
       - '5483:5432'

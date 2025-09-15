@@ -1,7 +1,7 @@
 services:
   
   orders-pg:
-    container_name: orders-app
+    container_name: app-orders
     image: bitnami/postgresql:17.2.0
     ports:
       - '5482:5432'
