@@ -1,4 +1,6 @@
 import '@opentelemetry/auto-instrumentations-node/register';
+import { trace } from '@opentelemetry/api'
+import { setTimeout } from 'node:timers/promises'
 
 import { fastify } from 'fastify';
 import { z } from 'zod';
@@ -13,6 +15,7 @@ import { env } from '../../env.ts';
 import { dispatchOrderCreated } from '../broker/messages/order-created.ts';
 import { db } from '../db/client.ts';
 import { schema } from '../db/schema/index.ts';
+import { tracer } from '../tracer/tracer.ts';
 
 const app = fastify().withTypeProvider<ZodTypeProvider>();
 
@@ -52,6 +55,16 @@ app.post(
 				status: 'pending',
 			})
 			.returning();
+
+			const span = tracer.startSpan("Maybe is here the problem")
+
+			span.setAttribute('setTimeout', 2000)
+
+			await setTimeout(2000)
+
+			span.end()
+
+			trace.getActiveSpan()?.setAttribute('order_id', order.id)
 
 		dispatchOrderCreated({
 			id: order.id,
