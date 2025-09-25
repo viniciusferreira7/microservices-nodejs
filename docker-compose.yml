@@ -42,11 +42,11 @@ services:
   #     KONG_PG_PASSWORD: kong
   #     KONG_PG_DATABASE: kong
 
-  kong:
+  api-gateway:
     image: kong:3.9
-    container_name: kong
-    depends_on:
-      - kong-database
+    container_name: api-gateway
+    # depends_on:
+    #   - kong-database
     environment:
       KONG_DATABASE: off
       # KONG_PG_HOST: kong-database
@@ -58,7 +58,7 @@ services:
       # KONG_PROXY_ERROR_LOG: /dev/stderr
       # KONG_ADMIN_ERROR_LOG: /dev/stderr
       KONG_ADMIN_LISTEN: 0.0.0.0:8001
-      KONG_ADMIN_GUI_URL: http:localhost:8002
+      KONG_ADMIN_GUI_URL: http://localhost:8002
     ports:
       - "8000:8000" # Proxy
       - "8001:8001" # Admin API
