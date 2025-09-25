@@ -1,16 +1,15 @@
 import '@opentelemetry/auto-instrumentations-node/register';
-import { trace } from '@opentelemetry/api'
-import { setTimeout } from 'node:timers/promises'
-
-import { fastify } from 'fastify';
-import { z } from 'zod';
+import { setTimeout } from 'node:timers/promises';
 import { faker } from '@faker-js/faker';
 import fastifyCors from '@fastify/cors';
+import { trace } from '@opentelemetry/api';
+import { fastify } from 'fastify';
 import {
 	serializerCompiler,
 	validatorCompiler,
 	type ZodTypeProvider,
 } from 'fastify-type-provider-zod';
+import { z } from 'zod';
 import { env } from '../../env.ts';
 import { dispatchOrderCreated } from '../broker/messages/order-created.ts';
 import { db } from '../db/client.ts';
@@ -56,15 +55,15 @@ app.post(
 			})
 			.returning();
 
-			const span = tracer.startSpan("Maybe is here the problem")
+		const span = tracer.startSpan('Maybe is here the problem');
 
-			span.setAttribute('setTimeout', 2000)
+		span.setAttribute('setTimeout', 2000);
 
-			await setTimeout(2000)
+		await setTimeout(2000);
 
-			span.end()
+		span.end();
 
-			trace.getActiveSpan()?.setAttribute('order_id', order.id)
+		trace.getActiveSpan()?.setAttribute('order_id', order.id);
 
 		dispatchOrderCreated({
 			id: order.id,
