@@ -14,6 +14,15 @@ importers:
       '@fastify/cors':
         specifier: ^11.1.0
         version: 11.1.0
+      '@opentelemetry/auto-instrumentations-node':
+        specifier: ^0.64.1
+        version: 0.64.1(@opentelemetry/api@1.9.0)(@opentelemetry/core@2.1.0(@opentelemetry/api@1.9.0))
+      '@opentelemetry/sdk-node':
+        specifier: ^0.205.0
+        version: 0.205.0(@opentelemetry/api@1.9.0)
+      '@opentelemetry/sdk-trace-node':
+        specifier: ^2.1.0
+        version: 2.1.0(@opentelemetry/api@1.9.0)
       amqplib:
         specifier: ^0.10.9
         version: 0.10.9
@@ -39,15 +48,6 @@ importers:
       '@biomejs/biome':
         specifier: ^2.2.2
         version: 2.2.2
-      '@opentelemetry/auto-instrumentations-node':
-        specifier: ^0.64.1
-        version: 0.64.1(@opentelemetry/api@1.9.0)(@opentelemetry/core@2.1.0(@opentelemetry/api@1.9.0))
-      '@opentelemetry/sdk-node':
-        specifier: ^0.205.0
-        version: 0.205.0(@opentelemetry/api@1.9.0)
-      '@opentelemetry/sdk-trace-node':
-        specifier: ^2.1.0
-        version: 2.1.0(@opentelemetry/api@1.9.0)
       '@tsconfig/node22':
         specifier: ^22.0.2
         version: 22.0.2
