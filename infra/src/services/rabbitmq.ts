@@ -1,7 +1,29 @@
 import * as awsx from "@pulumi/awsx";
 import { cluster } from "../cluster";
+import { appLoadBalancer } from "./load-balancer";
 
-export const rabbitmqService = new awsx.classic.ecs.FargateService(
+const rabbitMQTargetGroup = appLoadBalancer.createTargetGroup(
+	"rabbitmq-admin-target",
+	{
+		port: 15672,
+		protocol: "HTTP",
+		healthCheck: {
+			path: "/",
+			protocol: "HTTP",
+		},
+	},
+);
+
+const rabbitMQAdminHttpListener = appLoadBalancer.createListener(
+	"rabbitmq-admin-listener",
+	{
+		port: 15672,
+		protocol: "HTTP",
+		targetGroup: rabbitMQTargetGroup,
+	},
+);
+
+export const rabbitMQService = new awsx.classic.ecs.FargateService(
 	"fargate-rabbitmq",
 	{
 		cluster: cluster,
@@ -12,6 +34,7 @@ export const rabbitmqService = new awsx.classic.ecs.FargateService(
 				image: "rabbitmq:3-management",
 				cpu: 256,
 				memory: 512,
+				portMappings: [rabbitMQAdminHttpListener],
 				environment: [
 					{ name: "RABBITMQ_DEFAULT_USER", value: "admin" },
 					{ name: "RABBITMQ_DEFAULT_PASS", value: "admin" }, //FIXME: add value using pulumi cloud
