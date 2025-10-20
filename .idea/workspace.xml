@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="76b0eba9-6960-4018-ab63-5def6cc15cac" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/docker/kong/config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docker/kong/config.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infra/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/infra/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infra/src/services/orders.ts" beforeDir="false" afterPath="$PROJECT_DIR$/infra/src/services/orders.ts" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 1
+}]]></component>
+  <component name="ProjectId" id="34CuqWrqc2Ki0lgKZbbpo74rSzK" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true"
+  }
+}]]></component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="76b0eba9-6960-4018-ab63-5def6cc15cac" name="Changes" comment="" />
+      <created>1760730065760</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1760730065760</updated>
+    </task>
+    <servers />
+  </component>
+</project>
