@@ -62,5 +62,3 @@ export const ordersService = new awsx.classic.ecs.FargateService(
 		},
 	},
 );
-
-//TODO: 53:38
